@@ -1,0 +1,5 @@
+@mixin transitionColors {
+    transition: box-shadow 0.2s ease-out, opacity 0.2s ease-out,
+        color 0.2s ease-out, border-color 0.2s ease-out,
+        background-color 0.2s ease-out;
+}

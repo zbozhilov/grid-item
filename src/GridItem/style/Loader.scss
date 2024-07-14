@@ -1,0 +1,43 @@
+$barColor: #777;
+$gradient: no-repeat linear-gradient($barColor 0 0);
+
+.zb-grid-item-image-loader {
+    animation: zb-grid-item-image-loader-animation-fade-in 0.2s 0.1s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+
+    &-bars {
+        width: 20px;
+        aspect-ratio: 0.75;
+        background: $gradient 0% 100%, $gradient 50% 100%, $gradient 100% 100%;
+        background-size: 20% 65%;
+        animation: zb-grid-item-image-loader-animation-bars 0.75s infinite linear;
+    }
+}
+
+@keyframes zb-grid-item-image-loader-animation-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes zb-grid-item-image-loader-animation-bars {
+    20% {
+        background-position: 0% 50%, 50% 100%, 100% 100%;
+    }
+    40% {
+        background-position: 0% 0%, 50% 50%, 100% 100%;
+    }
+    60% {
+        background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    80% {
+        background-position: 0% 100%, 50% 100%, 100% 0%;
+    }
+}

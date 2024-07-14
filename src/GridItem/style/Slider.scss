@@ -1,0 +1,124 @@
+@import '../style//Helpers.scss';
+
+$aspectRatio: #{'4/3'};
+
+.zb-grid-item-image-slider {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ececec;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+
+    &-container {
+        position: relative;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        transition: transform 0.5s ease;
+    }
+
+    &-slide {
+        position: relative;
+
+        img {
+            width: 100%;
+            user-select: none;
+            object-fit: cover;
+            aspect-ratio: $aspectRatio;
+            float: left;
+        }
+    }
+
+    &-arrows {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        &-next,
+        &-prev {
+            cursor: pointer;
+            position: absolute;
+            top: calc(50% - 15px);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ececec;
+            @include transitionColors;
+            text-align: center;
+
+            i {
+                color: #202020;
+                font-size: 12px;
+                line-height: 32px;
+            }
+
+
+            &:hover {
+                background-color: #fff;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &-prev {
+            left: 10px;
+        }
+
+        &-next {
+            right: 10px;
+        }
+    }
+
+    &-counter {
+        user-select: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 1;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1;
+        padding: 5px 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+    }
+
+    .zb-grid-item-image-slider-counter,
+    .zb-grid-item-image-slider-arrows {
+        opacity: 0;
+        transition: opacity .2s ease;
+    }
+
+    &:hover {
+        .zb-grid-item-image-slider-counter,
+        .zb-grid-item-image-slider-arrows {
+            opacity: 1;
+        }
+    }
+
+    &-preload {
+        width: 100%;
+        aspect-ratio: $aspectRatio;
+
+        .zb-grid-item-image-loader {
+            aspect-ratio: $aspectRatio;
+        }
+
+        img {
+            opacity: 0;
+            animation: zb-grid-item-image-animation-fade-in 0.5s forwards;
+        }
+    }
+}
+
+@keyframes zb-grid-item-image-animation-fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

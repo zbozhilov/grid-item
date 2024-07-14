@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GridItem from './GridItem/GridItem';
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const randomImages = [] ;
+
+    for (let i = 0; i < 10; i++) {
+        randomImages.push({
+            id: i,
+            url: `https://loremflickr.com/320/240/kitten?random=${Math.random()}`,
+            alt: 'placeholder',
+        });
+    }
+
+    const item = {
+        images: randomImages,
+        title: 'Example Item Title',
+        description: 'Example description for the item goes here.',
+    };
+
+    return (
+        <div className='App'>
+            <div className='grid'>
+                <GridItem item={item} />
+            </div>
+        </div>
+    );
 }
 
 export default App;

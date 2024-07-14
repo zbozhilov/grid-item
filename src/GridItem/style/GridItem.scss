@@ -1,0 +1,23 @@
+.zb-grid {
+    &-item {
+        width: 100%;
+        position: relative;
+
+        &-image-slider {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        &-title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        &-description {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    }
+}
