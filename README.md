@@ -1,5 +1,8 @@
 # Grid Item Component 
-- A very basic grid item component including Title, Description and Item Image gallery with image preloader
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+A very basic grid item component including Title, Description and Item Image gallery with image preloader
 
 # Example
 
